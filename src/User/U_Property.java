@@ -31,18 +31,21 @@ import javax.swing.JOptionPane;
  * @author Windows 10
  */
 public class U_Property extends javax.swing.JFrame {
-
+private static String userImagePath = null;
+      private static String i_username;
     /**
      * Creates new form Property
      */
-    public U_Property() {
+    public U_Property(String username, String imgPath) {
         initComponents();
          setLocationRelativeTo(null);
        Session sess = Session.getInstance();
        
    
         
+        this.i_username = username;
         
+        userImagePath = imgPath;
        
        
        
@@ -302,7 +305,7 @@ public void updateMembershipImage() {
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
      this.dispose();
-      PropertyTransaction PT = new PropertyTransaction();
+      PropertyTransaction PT = new PropertyTransaction(i_username,userImagePath);
       PT.setVisible(true);              // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseClicked
 
@@ -407,7 +410,7 @@ public void updateMembershipImage() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new U_Property().setVisible(true);
+                new U_Property(i_username,userImagePath).setVisible(true);
             }
         });
     }

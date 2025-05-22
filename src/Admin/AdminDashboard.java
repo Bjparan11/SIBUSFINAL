@@ -162,7 +162,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profile.setBackground(new java.awt.Color(153, 255, 255));
+        profile.setBackground(new java.awt.Color(204, 204, 204));
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-administrator-male-100.png"))); // NOI18N
         profile.setOpaque(true);
@@ -218,14 +218,15 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 100, 30));
 
-        jLabel2.setBackground(new java.awt.Color(153, 255, 255));
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setOpaque(true);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 450));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         wctext.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        wctext.setForeground(new java.awt.Color(255, 255, 255));
         wctext.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wctext.setText("ADMIN DASHBOARD");
         jPanel5.add(wctext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 420, 30));
@@ -249,7 +250,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 50));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Property.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -468,7 +469,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_SelectMouseClicked
 
     private void PropertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PropertyMouseClicked
-        Property pt = new Property();
+        Property pt = new Property(i_username, userImagePath);
         pt.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_PropertyMouseClicked
@@ -515,7 +516,7 @@ this.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                  String imgPath = "path/to/default/image.png";
-                new AdminDashboard(i_username,imgPath).setVisible(true);
+                new AdminDashboard(i_username,userImagePath).setVisible(true);
             }
         });
     }

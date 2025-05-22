@@ -80,13 +80,14 @@ public class E_Add_Recovery extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setDoubleBuffered(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Password Recovery");
 
@@ -97,14 +98,14 @@ public class E_Add_Recovery extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(163, 163, 163)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 60));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 60));
 
         acc_Iid.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         acc_Iid.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -134,9 +135,10 @@ public class E_Add_Recovery extends javax.swing.JFrame {
         });
         jPanel1.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 130, 40));
 
-        sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's the name of your first Girlfriend?", "What's the lastname of your Mother?", "What's your favorite Movie?", "What's your favorite Song?", "What's your favorite Sports?" }));
-        jPanel1.add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 410, 30));
-        jPanel1.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 410, 30));
+        sq.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's the lastname of your Mother?", "What's your favorite Movie?", "What's your favorite Song?", "What's your favorite Sports?" }));
+        jPanel1.add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 410, 30));
+        jPanel1.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 410, 30));
 
         acc_fname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         acc_fname.setText("FirstName");

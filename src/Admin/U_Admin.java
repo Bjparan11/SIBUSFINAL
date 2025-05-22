@@ -162,10 +162,11 @@ private static String userImagePath = null;
         });
         jPanel3.add(Refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 40));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(102, 102, 102));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ADMIN DASHBOARD");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 500, 30));
@@ -184,7 +185,7 @@ private static String userImagePath = null;
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 620, 370));
 
-        jLabel3.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setOpaque(true);
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 180, 380));
 

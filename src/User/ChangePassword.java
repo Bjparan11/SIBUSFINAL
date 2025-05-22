@@ -76,9 +76,10 @@ public class ChangePassword extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CHANGE PASSWORD");
 
@@ -125,7 +126,7 @@ public class ChangePassword extends javax.swing.JFrame {
         user.setText("Confirm Pass    :");
         getContentPane().add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 120, 30));
 
-        jLabel7.setBackground(new java.awt.Color(153, 255, 255));
+        jLabel7.setBackground(new java.awt.Color(153, 153, 153));
         jLabel7.setOpaque(true);
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 120, 330));
         getContentPane().add(newPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 260, 30));
@@ -141,7 +142,7 @@ public class ChangePassword extends javax.swing.JFrame {
         getContentPane().add(Cpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 260, 30));
         getContentPane().add(oldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 260, 30));
 
-        jLabel2.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setOpaque(true);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 440, 330));
 

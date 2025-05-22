@@ -126,7 +126,7 @@ public class ViewAllproperty extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblrecord.setModel(new javax.swing.table.DefaultTableModel(
@@ -159,7 +159,7 @@ public class ViewAllproperty extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 70, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 70, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 570));
 
@@ -213,7 +213,7 @@ public class ViewAllproperty extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                  String imgPath = "path/to/default/image.png";
-                new ViewAllproperty(i_username,imgPath).setVisible(true);
+                new ViewAllproperty(i_username,userImagePath).setVisible(true);
             }
         });
     }

@@ -138,9 +138,10 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(LOGIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 160, 40));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REAL ESTATE MANAGEMENT SYSTEM");
 
@@ -236,7 +237,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, 240, 20));
 
-        jLabel10.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel10.setBackground(new java.awt.Color(204, 204, 204));
         jLabel10.setOpaque(true);
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 280, 410));
 

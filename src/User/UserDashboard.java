@@ -337,7 +337,7 @@ public void updateProfilePicture(String imgPath) {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-       U_Property up = new U_Property();
+       U_Property up = new U_Property(i_username,userImagePath);
        up.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton4MouseClicked

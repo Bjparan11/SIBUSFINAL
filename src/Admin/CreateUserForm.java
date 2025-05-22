@@ -162,79 +162,89 @@ public class CreateUserForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         name1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         name1.setText("USER ID :");
-        jPanel1.add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 90, 20));
+        jPanel1.add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 90, 30));
 
         name.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         name.setText("FIRSTNAME:");
-        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 90, 20));
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 90, 20));
 
+        fname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        fname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fnameActionPerformed(evt);
             }
         });
-        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 290, 30));
+        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 200, 40));
 
+        lname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         lname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lnameActionPerformed(evt);
             }
         });
-        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 290, 30));
+        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 200, 40));
 
         LastName.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         LastName.setText("LASTNAME:");
-        jPanel1.add(LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 80, 20));
+        jPanel1.add(LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 80, 20));
 
         user.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user.setText("USERNAME:");
-        jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
 
+        username.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 290, 30));
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 200, 40));
 
         dob1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         dob1.setText("PASSWORD:");
-        jPanel1.add(dob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+        jPanel1.add(dob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, -1, -1));
 
         dob.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         dob.setText("CONFIRM PASSWORD :");
-        jPanel1.add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        jPanel1.add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 140, -1, -1));
 
+        email.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
             }
         });
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 290, 30));
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 200, 40));
 
         stats1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         stats1.setText("EMAIL:");
-        jPanel1.add(stats1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
+        jPanel1.add(stats1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("PHONENUMBER:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
 
+        cnum.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cnum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cnum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cnumActionPerformed(evt);
             }
         });
-        jPanel1.add(cnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 290, 30));
+        jPanel1.add(cnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 200, 40));
 
         stats2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         stats2.setText("ACCOUNT TYPE :");
-        jPanel1.add(stats2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 120, 20));
+        jPanel1.add(stats2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 120, 20));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
         type.addActionListener(new java.awt.event.ActionListener() {
@@ -242,14 +252,14 @@ public class CreateUserForm extends javax.swing.JFrame {
                 typeActionPerformed(evt);
             }
         });
-        jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 290, 30));
+        jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 200, 40));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        jPanel1.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 290, 30));
+        jPanel1.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, 200, 40));
 
         stats.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         stats.setText("USER STATUS :");
-        jPanel1.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 110, -1));
+        jPanel1.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, 110, -1));
 
         add.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         add.setText("ADD");
@@ -263,7 +273,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 addActionPerformed(evt);
             }
         });
-        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 100, 30));
+        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 140, 30));
 
         update.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         update.setText("UPDATE");
@@ -277,7 +287,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 updateActionPerformed(evt);
             }
         });
-        jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 100, 30));
+        jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 140, 30));
 
         remove.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         remove.setText("REMOVE");
@@ -291,7 +301,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 removeActionPerformed(evt);
             }
         });
-        jPanel1.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 100, 30));
+        jPanel1.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 140, 30));
 
         refresh.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         refresh.setText("REFRESH");
@@ -300,7 +310,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
-        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, 100, 30));
+        jPanel1.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 140, 30));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton3.setText("CANCEL");
@@ -309,7 +319,7 @@ public class CreateUserForm extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 100, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 350, 140, 30));
 
         register.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         register.setText("REGISTER");
@@ -318,25 +328,33 @@ public class CreateUserForm extends javax.swing.JFrame {
                 registerActionPerformed(evt);
             }
         });
-        jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 100, 30));
+        jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 140, 30));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Creat User Form");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 300, 30));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 300, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 50));
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 290, 30));
-        jPanel1.add(cpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 290, 30));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 50));
 
+        password.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 160, 200, 40));
+
+        cpassword.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cpassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(cpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 160, 200, 40));
+
+        IID.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         IID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IID.setEnabled(false);
-        jPanel1.add(IID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 290, 30));
+        jPanel1.add(IID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 130, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 570));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 460));
 
         pack();
         setLocationRelativeTo(null);

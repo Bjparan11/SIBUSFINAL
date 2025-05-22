@@ -20,15 +20,21 @@ import net.proteanit.sql.DbUtils;
  * @author milan
  */
 public class PropertyTransaction extends javax.swing.JFrame {
-
+private static String userImagePath = null;
+      private static String i_username;
     /**
      * Creates new form PropertyTransaction
      */
-    public PropertyTransaction() {
+    public PropertyTransaction(String username, String imgPath) {
         initComponents();
           setResizable(false);
         setLocationRelativeTo(null);
         displayData();
+        
+         this.i_username = username;
+        
+        userImagePath = imgPath;
+       
     }
 
      public void displayData(){
@@ -65,6 +71,7 @@ propertiestbl.getTableHeader().repaint();
         propertiestbl = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,6 +109,14 @@ propertiestbl.getTableHeader().repaint();
         jLabel1.setText("PROPERTIES TRANSACTION");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 50, 530, -1));
 
+        jButton2.setText("Back");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 110, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 530));
 
         pack();
@@ -132,7 +147,7 @@ if ("SUSPENDED".equalsIgnoreCase(status)) {
 }
 
 TableModel model = propertiestbl.getModel();
-U_Property of = new U_Property();
+U_Property of = new U_Property(i_username,userImagePath);
 of.pid.setText("" + model.getValueAt(rowIndex, 0));  // ID
 of.ty.setSelectedItem("" + model.getValueAt(rowIndex, 1));  // Type
 of.pr.setText("" + model.getValueAt(rowIndex, 3));   // Price (make sure this is correct column and field)
@@ -142,6 +157,12 @@ this.dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+     UserDashboard ud = new UserDashboard(i_username,userImagePath);
+     ud.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -173,13 +194,14 @@ this.dispose();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PropertyTransaction().setVisible(true);
+                new PropertyTransaction(i_username,userImagePath).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;

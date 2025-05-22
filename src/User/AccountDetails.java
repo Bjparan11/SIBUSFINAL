@@ -203,10 +203,11 @@ public class AccountDetails extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ACCOUNT DETAILS");
         jLabel1.setOpaque(true);
@@ -290,7 +291,7 @@ public class AccountDetails extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 210, 180));
 
-        jLabel7.setBackground(new java.awt.Color(153, 255, 255));
+        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setOpaque(true);
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 270, 390));
 
@@ -379,7 +380,7 @@ public class AccountDetails extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 220, 40));
 
-        jLabel2.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setOpaque(true);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 490, 390));
 

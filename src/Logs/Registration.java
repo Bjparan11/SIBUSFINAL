@@ -90,6 +90,7 @@ public class Registration extends javax.swing.JFrame {
         type = new javax.swing.JComboBox<>();
         sq = new javax.swing.JComboBox<>();
         ans = new javax.swing.JTextField();
+        im = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,7 +146,7 @@ public class Registration extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 110, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 110, 30));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Registration");
@@ -154,7 +155,7 @@ public class Registration extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 120, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 120, 30));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -191,8 +192,21 @@ public class Registration extends javax.swing.JFrame {
         getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 180, -1));
 
         sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's the name of your first Girlfriend?", "What's the lastname of your Mother?", "What's your favorite Movie?", "What's your favorite Song?", "What's your favorite Sports?" }));
-        getContentPane().add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 250, 30));
-        getContentPane().add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 240, 30));
+        getContentPane().add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 250, 30));
+        getContentPane().add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 250, 30));
+
+        javax.swing.GroupLayout imLayout = new javax.swing.GroupLayout(im);
+        im.setLayout(imLayout);
+        imLayout.setHorizontalGroup(
+            imLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        imLayout.setVerticalGroup(
+            imLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(im, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -205,64 +219,66 @@ public class Registration extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     if (fname.getText().isEmpty() || lname.getText().isEmpty() || username.getText().isEmpty() ||
-    password.getText().isEmpty() || email.getText().isEmpty() || cnum.getText().isEmpty() ||
-    sq.getSelectedItem() == null || ans.getText().isEmpty()) {
+                if (fname.getText().isEmpty() || lname.getText().isEmpty() || username.getText().isEmpty() ||
+               password.getText().isEmpty() || email.getText().isEmpty() || cnum.getText().isEmpty() ||
+               sq.getSelectedItem() == null || ans.getText().isEmpty()) {
 
-    JOptionPane.showMessageDialog(null, "All fields are required!");
+                    JOptionPane.showMessageDialog(null, "All fields are required!");
 
-} else if (password.getText().length() < 8) {
+                } else if (password.getText().length() < 8) {
 
-    JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
-    password.setText("");
+                    JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
+                    password.setText("");
 
-} else if (!password.getText().equals(cpass.getText())) {
+                } else if (!password.getText().equals(cpass.getText())) {
 
-    JOptionPane.showMessageDialog(null, "Password Does Not Match");
-    password.setText("");
+                    JOptionPane.showMessageDialog(null, "Password Does Not Match");
+                    password.setText("");
 
-} else if (!isValidEmail(email.getText())) {
+                } else if (!isValidEmail(email.getText())) {
 
-    JOptionPane.showMessageDialog(null, "Invalid Email");
+                    JOptionPane.showMessageDialog(null, "Invalid Email");
 
-} else if (!isNumeric(cnum.getText())) {
+                } else if (!isNumeric(cnum.getText())) {
 
-    JOptionPane.showMessageDialog(null, "Contact number must contain only numbers.");
+                    JOptionPane.showMessageDialog(null, "Contact number must contain only numbers.");
 
-} else if (cnum.getText().length() > 15 || cnum.getText().length() < 11) {
+                } else if (cnum.getText().length() > 15 || cnum.getText().length() < 11) {
 
-    JOptionPane.showMessageDialog(null, "Invalid Phone num");
+                    JOptionPane.showMessageDialog(null, "Invalid Phone num");
 
-} else if (duplicateCheck()) {
+                } else if (duplicateCheck()) {
 
-    System.out.println("Duplicate Exists");
+                    System.out.println("Duplicate Exists");
 
-} else {
+                } else {
 
-    dbConnector dbc = new dbConnector();
-    try {
-        String pass = passwordHasher.hashPassword(password.getText());
-        String question = sq.getSelectedItem().toString();
-        String answer = ans.getText();
+                    dbConnector dbc = new dbConnector();
+                    try {
+                        String pass = passwordHasher.hashPassword(password.getText());
+                        String question = sq.getSelectedItem().toString();
+                        String answer = ans.getText();
 
-        String sql = "INSERT INTO user(i_fname, i_lname, i_username, i_password, i_email, i_phonenumber, i_type, status, security_question, security_answer) "
-                   + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
-                   + username.getText() + "', '" + pass + "', '"
-                   + email.getText() + "','" + cnum.getText() + "', '"
-                   + type.getSelectedItem().toString() + "', 'PENDING', '"
-                   + question + "', '" + answer + "')";
 
-        if (dbc.insertData(sql)) {
-            JOptionPane.showMessageDialog(null, "Register Successfully");
+                      String sql = "INSERT INTO user(i_fname, i_lname, i_username, i_password, i_email, i_phonenumber, i_type, status, security_question, security_answer,i_image) "
+                           + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
+                           + username.getText() + "', '" + pass + "', '"
+                           + email.getText() + "','" + cnum.getText() + "', '"
+                           + type.getSelectedItem().toString() + "', 'PENDING', '"
+                           + sq + "', '" + ans + "','')";
 
-            Login ads = new Login();
-            ads.setVisible(true);
-            this.dispose(); 
-        }
 
-    } catch (NoSuchAlgorithmException ex) {
-        System.out.println("" + ex);
-    }
+                        if (dbc.insertData(sql)) {
+                            JOptionPane.showMessageDialog(null, "Register Successfully");
+
+                            Login ads = new Login();
+                            ads.setVisible(true);
+                            this.dispose(); 
+                        }
+
+                    } catch (NoSuchAlgorithmException ex) {
+                        System.out.println("" + ex);
+                    }
 }
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -308,6 +324,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JPasswordField cpass;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
+    private javax.swing.JPanel im;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
