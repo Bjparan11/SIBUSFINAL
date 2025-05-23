@@ -309,6 +309,7 @@ public class AccountDetails extends javax.swing.JFrame {
         });
         getContentPane().add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 120, 30));
 
+        acc_username.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         acc_username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         acc_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,6 +328,7 @@ public class AccountDetails extends javax.swing.JFrame {
         jLabel6.setText("Last Name:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 80, 30));
 
+        acc_lname.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         acc_lname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         acc_lname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,6 +337,7 @@ public class AccountDetails extends javax.swing.JFrame {
         });
         getContentPane().add(acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 230, 30));
 
+        acc_fname.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         acc_fname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         acc_fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,6 +351,7 @@ public class AccountDetails extends javax.swing.JFrame {
         jLabel8.setText("  First Name:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 90, 30));
 
+        acc_cnum.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         acc_cnum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         acc_cnum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -129,6 +129,9 @@ public class ChangePassword extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(153, 153, 153));
         jLabel7.setOpaque(true);
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 120, 330));
+
+        newPassword.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        newPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(newPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 260, 30));
 
         Save.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
@@ -139,7 +142,13 @@ public class ChangePassword extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 130, 40));
+
+        Cpassword.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        Cpassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(Cpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 260, 30));
+
+        oldPassword.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        oldPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(oldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 260, 30));
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));

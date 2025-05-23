@@ -265,7 +265,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 PropertyActionPerformed(evt);
             }
         });
-        jPanel2.add(Property, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 160, 40));
+        jPanel2.add(Property, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 160, 40));
 
         Client.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Client.setText("Accounts");
@@ -274,7 +274,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 ClientActionPerformed(evt);
             }
         });
-        jPanel2.add(Client, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 160, 40));
+        jPanel2.add(Client, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 160, 40));
 
         Sale.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Sale.setText("View All Property");
@@ -288,7 +288,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 SaleActionPerformed(evt);
             }
         });
-        jPanel2.add(Sale, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 160, 40));
+        jPanel2.add(Sale, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 160, 40));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Password Recovery");
@@ -297,7 +297,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 160, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 160, 40));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setText("Logs");
@@ -311,7 +311,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 160, 40));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 160, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 480, 450));
 

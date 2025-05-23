@@ -123,7 +123,7 @@ public class Logs_Admin extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(logs);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 500, 360));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 500, 360));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 450));
 

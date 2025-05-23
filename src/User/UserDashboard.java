@@ -108,8 +108,6 @@ public void updateProfilePicture(String imgPath) {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 255));
@@ -124,9 +122,10 @@ public void updateProfilePicture(String imgPath) {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USER DASHBOARD");
 
@@ -149,11 +148,11 @@ public void updateProfilePicture(String imgPath) {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 50));
 
-        profile.setBackground(new java.awt.Color(204, 255, 255));
+        profile.setBackground(new java.awt.Color(204, 204, 204));
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Benjohn.png"))); // NOI18N
         profile.setOpaque(true);
-        getContentPane().add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 240, 140));
+        getContentPane().add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 170, 140));
 
         acc_type.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         acc_type.setText("Type ");
@@ -216,25 +215,7 @@ public void updateProfilePicture(String imgPath) {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 180, 50));
 
-        jButton5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton5.setText("Property Images");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 180, 50));
-
-        jButton6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton6.setText("Property Type");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 180, 50));
-
-        jLabel7.setBackground(new java.awt.Color(153, 255, 255));
+        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setOpaque(true);
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 250, 410));
 
@@ -342,14 +323,6 @@ public void updateProfilePicture(String imgPath) {
        this.dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -398,8 +371,6 @@ public void updateProfilePicture(String imgPath) {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;

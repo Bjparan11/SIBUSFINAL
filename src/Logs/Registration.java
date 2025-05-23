@@ -4,6 +4,7 @@ package Logs;
 import dbConnect.passwordHasher;
 import dbConnect.dbConnector;
 import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -99,6 +100,9 @@ public class Registration extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Username :");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, 30));
+
+        cnum.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        cnum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 180, 30));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -132,6 +136,9 @@ public class Registration extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Confirm Password :");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 140, 30));
+
+        cpass.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        cpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(cpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 180, 30));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
@@ -166,33 +173,51 @@ public class Registration extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("First Name :");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 90, 30));
+
+        fname.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        fname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 180, 30));
+
+        lname.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        lname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, 180, 30));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Phone Number :");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 140, 30));
+
+        password.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 180, 30));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Password :");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 80, 30));
+
+        username.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 180, 30));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Email :");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 80, 30));
+
+        email.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, 180, 30));
 
         type.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 180, -1));
 
-        sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's the name of your first Girlfriend?", "What's the lastname of your Mother?", "What's your favorite Movie?", "What's your favorite Song?", "What's your favorite Sports?" }));
+        sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's the lastname of your Mother?", "What's your favorite Movie?", "What's your favorite Song?", "What's your favorite Sports?" }));
         getContentPane().add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 250, 30));
+
+        ans.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        ans.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 250, 30));
 
         javax.swing.GroupLayout imLayout = new javax.swing.GroupLayout(im);
@@ -219,67 +244,91 @@ public class Registration extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                if (fname.getText().isEmpty() || lname.getText().isEmpty() || username.getText().isEmpty() ||
-               password.getText().isEmpty() || email.getText().isEmpty() || cnum.getText().isEmpty() ||
-               sq.getSelectedItem() == null || ans.getText().isEmpty()) {
+               if (fname.getText().isEmpty() || lname.getText().isEmpty() || username.getText().isEmpty() ||
+    password.getText().isEmpty() || email.getText().isEmpty() || cnum.getText().isEmpty() ||
+    sq.getSelectedItem() == null || ans.getText().isEmpty()) {
 
-                    JOptionPane.showMessageDialog(null, "All fields are required!");
+    System.out.println("Validation Failed: Some fields are empty.");
+    JOptionPane.showMessageDialog(null, "All fields are required!");
 
-                } else if (password.getText().length() < 8) {
+} else if (password.getText().length() < 8) {
 
-                    JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
-                    password.setText("");
+    System.out.println("Validation Failed: Password length less than 8.");
+    JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
+    password.setText("");
 
-                } else if (!password.getText().equals(cpass.getText())) {
+} else if (!password.getText().equals(cpass.getText())) {
 
-                    JOptionPane.showMessageDialog(null, "Password Does Not Match");
-                    password.setText("");
+    System.out.println("Validation Failed: Passwords do not match.");
+    JOptionPane.showMessageDialog(null, "Password Does Not Match");
+    password.setText("");
 
-                } else if (!isValidEmail(email.getText())) {
+} else if (!isValidEmail(email.getText())) {
 
-                    JOptionPane.showMessageDialog(null, "Invalid Email");
+    System.out.println("Validation Failed: Invalid email format.");
+    JOptionPane.showMessageDialog(null, "Invalid Email");
 
-                } else if (!isNumeric(cnum.getText())) {
+} else if (!isNumeric(cnum.getText())) {
 
-                    JOptionPane.showMessageDialog(null, "Contact number must contain only numbers.");
+    System.out.println("Validation Failed: Contact number contains non-numeric characters.");
+    JOptionPane.showMessageDialog(null, "Contact number must contain only numbers.");
 
-                } else if (cnum.getText().length() > 15 || cnum.getText().length() < 11) {
+} else if (cnum.getText().length() > 15 || cnum.getText().length() < 11) {
 
-                    JOptionPane.showMessageDialog(null, "Invalid Phone num");
+    System.out.println("Validation Failed: Contact number length is invalid.");
+    JOptionPane.showMessageDialog(null, "Invalid Phone num");
 
-                } else if (duplicateCheck()) {
+} else if (duplicateCheck()) {
 
-                    System.out.println("Duplicate Exists");
+    System.out.println("Validation Failed: Duplicate user exists.");
+    JOptionPane.showMessageDialog(null, "Duplicate Exists");
 
-                } else {
+} else {
 
-                    dbConnector dbc = new dbConnector();
-                    try {
-                        String pass = passwordHasher.hashPassword(password.getText());
-                        String question = sq.getSelectedItem().toString();
-                        String answer = ans.getText();
+    System.out.println("Validation Passed: Proceeding to registration.");
+    dbConnector dbc = new dbConnector();
+    try {
+        String pass = passwordHasher.hashPassword(password.getText());
+        String question = sq.getSelectedItem().toString();
+        String answer = ans.getText();
 
+        String sql = "INSERT INTO user(i_fname, i_lname, i_username, i_password, i_email, i_phonenumber, i_type, status, security_question, security_answer, i_image) "
+                   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-                      String sql = "INSERT INTO user(i_fname, i_lname, i_username, i_password, i_email, i_phonenumber, i_type, status, security_question, security_answer,i_image) "
-                           + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
-                           + username.getText() + "', '" + pass + "', '"
-                           + email.getText() + "','" + cnum.getText() + "', '"
-                           + type.getSelectedItem().toString() + "', 'PENDING', '"
-                           + sq + "', '" + ans + "','')";
+        PreparedStatement pst = dbc.getConnection().prepareStatement(sql);
+        pst.setString(1, fname.getText());
+        pst.setString(2, lname.getText());
+        pst.setString(3, username.getText());
+        pst.setString(4, pass);
+        pst.setString(5, email.getText());
+        pst.setString(6, cnum.getText());
+        pst.setString(7, type.getSelectedItem().toString());
+        pst.setString(8, "PENDING");
+        pst.setString(9, question);
+        pst.setString(10, answer);
+        pst.setString(11, ""); // Assuming no image for now
 
+        int result = pst.executeUpdate();
+        if (result > 0) {
+            System.out.println("Registration successful. Redirecting to login.");
+            JOptionPane.showMessageDialog(null, "Register Successfully");
 
-                        if (dbc.insertData(sql)) {
-                            JOptionPane.showMessageDialog(null, "Register Successfully");
+            Login ads = new Login();
+            ads.setVisible(true);
+            this.dispose();
+        } else {
+            System.out.println("Database insert failed.");
+        }
 
-                            Login ads = new Login();
-                            ads.setVisible(true);
-                            this.dispose(); 
-                        }
-
-                    } catch (NoSuchAlgorithmException ex) {
-                        System.out.println("" + ex);
-                    }
+    } catch (NoSuchAlgorithmException ex) {
+        System.out.println("Password hashing error: " + ex);
+    } catch (SQLException e) {
+        System.out.println("SQL Error: " + e);
+    }
 }
+
+
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

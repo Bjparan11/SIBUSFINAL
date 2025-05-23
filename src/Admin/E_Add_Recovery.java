@@ -138,6 +138,9 @@ public class E_Add_Recovery extends javax.swing.JFrame {
         sq.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's the lastname of your Mother?", "What's your favorite Movie?", "What's your favorite Song?", "What's your favorite Sports?" }));
         jPanel1.add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 410, 30));
+
+        ans.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        ans.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 410, 30));
 
         acc_fname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N

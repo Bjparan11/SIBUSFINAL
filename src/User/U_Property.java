@@ -194,9 +194,10 @@ public void updateMembershipImage() {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Property");
 
@@ -216,7 +217,7 @@ public void updateMembershipImage() {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 50));
 
-        jPanel3.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -240,6 +241,8 @@ public void updateMembershipImage() {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Total Price :");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 110, 30));
+
+        pr.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(pr, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 160, 30));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -262,6 +265,7 @@ public void updateMembershipImage() {
         });
         jPanel3.add(pid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 160, 40));
 
+        stat.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         stat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
         jPanel3.add(stat, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 160, 30));
 
@@ -283,6 +287,7 @@ public void updateMembershipImage() {
         jLabel9.setText("Structure :");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 80, 30));
 
+        st.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         st.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Two-Story", "Single", "Two-Story" }));
         st.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

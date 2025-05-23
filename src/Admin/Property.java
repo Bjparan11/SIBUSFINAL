@@ -141,7 +141,6 @@ private static String userImagePath = null;
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         ty = new javax.swing.JComboBox<>();
@@ -157,6 +156,7 @@ private static String userImagePath = null;
         select = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         u_image = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         jButton1.setText("jButton1");
 
@@ -172,31 +172,18 @@ private static String userImagePath = null;
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Property");
 
-        jToggleButton1.setText("BACK");
-        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addContainerGap(197, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(200, 200, 200))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jToggleButton1)
-                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 50));
@@ -208,7 +195,7 @@ private static String userImagePath = null;
         jLabel2.setText("ID :");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 40, 30));
 
-        ty.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        ty.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         ty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Commercial", "Residential", "Industrial", "Land", "Mansion", "Apartment" }));
         jPanel3.add(ty, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 160, 30));
 
@@ -223,7 +210,7 @@ private static String userImagePath = null;
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 130, -1));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 130, -1));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton4.setText("EDIT");
@@ -232,7 +219,7 @@ private static String userImagePath = null;
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 130, -1));
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 130, -1));
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton5.setText("REMOVE");
@@ -241,12 +228,13 @@ private static String userImagePath = null;
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 130, -1));
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 130, -1));
 
         IID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IID.setEnabled(false);
         jPanel3.add(IID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 160, 30));
 
+        st.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         st.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Two-Story", "Single", "Two-Story" }));
         st.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,6 +251,8 @@ private static String userImagePath = null;
         jLabel7.setText("Structure :");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 80, 30));
 
+        php.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        php.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         php.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phpActionPerformed(evt);
@@ -284,6 +274,15 @@ private static String userImagePath = null;
         jPanel4.add(u_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 170));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 300, 200));
+
+        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jToggleButton1.setText("BACK");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 100, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 760, 400));
 
