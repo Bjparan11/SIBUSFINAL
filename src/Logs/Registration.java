@@ -213,12 +213,13 @@ public class Registration extends javax.swing.JFrame {
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, 180, -1));
 
+        sq.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         sq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What's the lastname of your Mother?", "What's your favorite Movie?", "What's your favorite Song?", "What's your favorite Sports?" }));
-        getContentPane().add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 250, 30));
+        getContentPane().add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 280, 30));
 
         ans.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         ans.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 250, 30));
+        getContentPane().add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 280, 30));
 
         javax.swing.GroupLayout imLayout = new javax.swing.GroupLayout(im);
         im.setLayout(imLayout);

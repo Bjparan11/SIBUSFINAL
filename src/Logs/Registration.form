@@ -338,6 +338,9 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="sq">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="16" style="1"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
             <StringItem index="0" value="What&apos;s the lastname of your Mother?"/>
@@ -352,7 +355,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="570" y="410" width="250" height="30"/>
+          <AbsoluteConstraints x="540" y="410" width="280" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -365,7 +368,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="570" y="450" width="250" height="30"/>
+          <AbsoluteConstraints x="540" y="450" width="280" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
