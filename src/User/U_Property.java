@@ -19,6 +19,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.imageio.ImageIO;
@@ -120,16 +121,16 @@ public void updateMembershipImage() {
     if (selectedType != null) {
         switch (selectedType.trim()) {
             case "Commercial":
-                imagePath = "src/imageshouse/1.jpg";
+                imagePath = "src/imageshouse/aaaa0900.jpg";
                 break;
             case "Residential":
                 imagePath = "src/imageshouse/2.jpg";
                 break;
             case "Industrial":
-                imagePath = "src/imageshouse/3.jpg";
+                imagePath = "src/imageshouse/1.jpg";
                 break;
             case "Mansion":
-                imagePath = "src/imageshouse/7.jpg";
+                imagePath = "src/imageshouse/123.jpg";
                 break;
             default:
                 image.setIcon(null);
@@ -188,6 +189,7 @@ public void updateMembershipImage() {
         image = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         st = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -252,7 +254,7 @@ public void updateMembershipImage() {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 100, -1));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 311, 100, 40));
 
         pid.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         pid.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -296,6 +298,15 @@ public void updateMembershipImage() {
         });
         jPanel3.add(st, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 160, 30));
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setText("CANCEL");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 313, 120, 40));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 760, 400));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
@@ -315,74 +326,124 @@ public void updateMembershipImage() {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    if (ty.getSelectedItem() == null || st.getSelectedItem() == null || pr.getText().isEmpty()) {
+     if (ty.getSelectedItem() == null || st.getSelectedItem() == null || pr.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "All fields are required.");
-    } else {
-        try {
-            String pType = ty.getSelectedItem().toString().trim();
-            String pStructure = st.getSelectedItem().toString().trim();
-            int pPrice = Integer.parseInt(pr.getText().trim());
+        return;
+    }
 
-            File imageFileToCheck = selectedFile;
+    try {
+        String pType = ty.getSelectedItem().toString().trim();
+        String pStructure = st.getSelectedItem().toString().trim();
+        int pPrice = Integer.parseInt(pr.getText().trim());
 
-            // Check image from JLabel if none selected
-            if (imageFileToCheck == null && image.getIcon() != null) {
-                if (image.getIcon() instanceof ImageIcon) {
-                    ImageIcon icon = (ImageIcon) image.getIcon();
-                    String imagePath = icon.getDescription(); // should be set when loading image
-                    if (imagePath != null) {
-                        imageFileToCheck = new File(imagePath);
-                    }
+        File imageFileToCheck = selectedFile;
+
+        // Check image from JLabel if none selected
+        if (imageFileToCheck == null && image.getIcon() != null) {
+            if (image.getIcon() instanceof ImageIcon) {
+                ImageIcon icon = (ImageIcon) image.getIcon();
+                String imagePath = icon.getDescription(); // should be set when loading image
+                if (imagePath != null) {
+                    imageFileToCheck = new File(imagePath);
                 }
             }
-
-            if (imageFileToCheck == null || !imageFileToCheck.exists()) {
-                JOptionPane.showMessageDialog(null, "No image selected or found.");
-                return;
-            }
-
-            // Use ONLY the filename for matching DB record (because your DB stores just filenames)
-            String imagePathInDB = imageFileToCheck.getName();
-
-            dbConnector dbc = new dbConnector();
-
-            // Update only available properties
-            String updateQuery = "UPDATE properties SET status = 'Sold' WHERE type = ? AND structure = ? AND price = ? AND image = ? AND status = 'Available'";
-            PreparedStatement pst = dbc.getConnection().prepareStatement(updateQuery);
-            pst.setString(1, pType);
-            pst.setString(2, pStructure);
-            pst.setInt(3, pPrice);
-            pst.setString(4, imagePathInDB);
-
-            int updated = pst.executeUpdate();
-
-            if (updated > 0) {
-                JOptionPane.showMessageDialog(null, "Property successfully purchased (status set to Sold).");
-                ty.setSelectedIndex(0);
-                st.setSelectedIndex(0);
-                pr.setText("");
-                stat.setSelectedIndex(0);
-                image.setIcon(null);
-                selectedFile = null;
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching property found or already sold.");
-            }
-
-            pst.close();
-            dbc.closeConnection();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }
+
+        if (imageFileToCheck == null || !imageFileToCheck.exists()) {
+            JOptionPane.showMessageDialog(null, "No image selected or found.");
+            return;
+        }
+
+        String imagePathInDB = imageFileToCheck.getName();
+        dbConnector dbc = new dbConnector();
+
+        // Update property status to 'Sold'
+        String updateQuery = "UPDATE properties SET status = 'Sold' WHERE type = ? AND structure = ? AND price = ? AND image = ? AND status = 'Available'";
+        PreparedStatement pst = dbc.getConnection().prepareStatement(updateQuery);
+        pst.setString(1, pType);
+        pst.setString(2, pStructure);
+        pst.setInt(3, pPrice);
+        pst.setString(4, imagePathInDB);
+
+        int updated = pst.executeUpdate();
+        pst.close();
+
+        if (updated > 0) {
+            // Fetch the updated property ID
+            String selectIdQuery = "SELECT id FROM properties WHERE type = ? AND structure = ? AND price = ? AND image = ? AND status = 'Sold' LIMIT 1";
+            PreparedStatement selectIdPst = dbc.getConnection().prepareStatement(selectIdQuery);
+            selectIdPst.setString(1, pType);
+            selectIdPst.setString(2, pStructure);
+            selectIdPst.setInt(3, pPrice);
+            selectIdPst.setString(4, imagePathInDB);
+            ResultSet rs = selectIdPst.executeQuery();
+
+            if (rs.next()) {
+                int propertyId = rs.getInt("id");
+                int userId = Session.getInstance().getIid();
+
+                // Check if user already purchased this property
+                String checkDup = "SELECT * FROM purchased_properties WHERE user_id = ? AND property_id = ?";
+                PreparedStatement checkPst = dbc.getConnection().prepareStatement(checkDup);
+                checkPst.setInt(1, userId);
+                checkPst.setInt(2, propertyId);
+                ResultSet checkRs = checkPst.executeQuery();
+
+                if (checkRs.next()) {
+                    JOptionPane.showMessageDialog(null, "You have already purchased this property.");
+                } else {
+                    // Insert into purchased_properties
+                    String insertQuery = "INSERT INTO purchased_properties (user_id, property_id, purchase_date) VALUES (?, ?, NOW())";
+                    PreparedStatement insertPst = dbc.getConnection().prepareStatement(insertQuery);
+                    insertPst.setInt(1, userId);
+                    insertPst.setInt(2, propertyId);
+
+                    int inserted = insertPst.executeUpdate();
+                    if (inserted > 0) {
+                        JOptionPane.showMessageDialog(null, "Property successfully purchased and recorded.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to record the purchase.");
+                    }
+
+                    insertPst.close();
+                }
+
+                checkRs.close();
+                checkPst.close();
+            }
+
+            rs.close();
+            selectIdPst.close();
+
+            // Clear form
+            ty.setSelectedIndex(0);
+            st.setSelectedIndex(0);
+            pr.setText("");
+            stat.setSelectedIndex(0);
+            image.setIcon(null);
+            selectedFile = null;
+        } else {
+            JOptionPane.showMessageDialog(null, "No matching property found or already sold.");
+        }
+
+        dbc.closeConnection();
+        this.dispose();
+
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
     }
-     this.dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void stActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      UserDashboard ar = new UserDashboard(i_username,userImagePath);
+      ar.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -423,6 +484,7 @@ public void updateMembershipImage() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel image;
     private javax.swing.JPanel imagesss;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

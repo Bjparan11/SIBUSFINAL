@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import Logs.Login;
 
 /**
  *
@@ -41,6 +42,8 @@ public class UserDashboard extends javax.swing.JFrame {
         userImagePath = imgPath;
         displayImage();
     }
+
+    
 
     private void displayImage() {
     if (userImagePath != null && !userImagePath.isEmpty()) {
@@ -108,6 +111,7 @@ public void updateProfilePicture(String imgPath) {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 255));
@@ -215,6 +219,15 @@ public void updateProfilePicture(String imgPath) {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 180, 50));
 
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton2.setText("Purchased Properties");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 180, 50));
+
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setOpaque(true);
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 250, 410));
@@ -224,7 +237,10 @@ public void updateProfilePicture(String imgPath) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+     
+        
+      
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -323,6 +339,12 @@ public void updateProfilePicture(String imgPath) {
        this.dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      PropertiesPurchased pp = new PropertiesPurchased();
+      pp.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +391,7 @@ public void updateProfilePicture(String imgPath) {
     public javax.swing.JLabel acc_type;
     private javax.swing.JLabel acc_username;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
