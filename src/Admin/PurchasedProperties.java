@@ -26,7 +26,7 @@ private static String userImagePath = null;
     /**
      * Creates new form PurchasedProperties
      */
-    public PurchasedProperties() {
+    public PurchasedProperties(String username, String imgPath) {
         initComponents();
         loadAllUsersPurchases();
     }
@@ -255,7 +255,7 @@ public void loadAllUsersPurchases() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PurchasedProperties().setVisible(true);
+                new PurchasedProperties(i_username, userImagePath).setVisible(true);
             }
         });
     }

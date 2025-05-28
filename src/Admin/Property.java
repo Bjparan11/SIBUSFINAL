@@ -384,6 +384,8 @@ try {
     ex.printStackTrace();
     JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage());
 }
+AdminDashboard ad = new AdminDashboard(i_username,userImagePath);
+ad.setVisible(true);
  this.dispose();
  // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed

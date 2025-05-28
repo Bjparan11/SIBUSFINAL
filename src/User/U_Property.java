@@ -268,7 +268,7 @@ public void updateMembershipImage() {
         jPanel3.add(pid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 160, 40));
 
         stat.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        stat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
+        stat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Pending" }));
         jPanel3.add(stat, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 160, 30));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -426,7 +426,8 @@ public void updateMembershipImage() {
             JOptionPane.showMessageDialog(null, "No matching property found or already sold.");
         }
 
-        dbc.closeConnection();
+        UserDashboard usd = new UserDashboard(i_username,userImagePath);
+        usd.setVisible(true);
         this.dispose();
 
     } catch (Exception ex) {

@@ -452,7 +452,8 @@ public class AdminDashboard extends javax.swing.JFrame {
                 logActivity(userId, "Admin Logged out");
 
                 // Redirect to login screen
-                new Login().setVisible(true);
+                Login lg = new Login();
+                lg.setVisible(true);
                 this.dispose();
             }
         } else {
@@ -496,7 +497,7 @@ this.dispose();
     }//GEN-LAST:event_SaleMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PurchasedProperties pp = new PurchasedProperties();
+        PurchasedProperties pp = new PurchasedProperties(i_username,userImagePath);
         pp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
