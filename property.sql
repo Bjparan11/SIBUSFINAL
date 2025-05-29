@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2025 at 05:47 AM
+-- Generation Time: May 29, 2025 at 02:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -83,7 +83,9 @@ INSERT INTO `logs_table` (`logs_id`, `i_id`, `logs_action`, `logs_date`) VALUES
 (43, 3, 'Admin Logged in', '2025-05-27 03:37:53'),
 (44, 3, 'Admin Logged in', '2025-05-27 03:39:33'),
 (45, 3, 'Admin Logged in', '2025-05-27 03:41:03'),
-(46, 2, 'User Logged in', '2025-05-27 03:42:12');
+(46, 2, 'User Logged in', '2025-05-27 03:42:12'),
+(47, 4, 'Admin Logged in', '2025-05-29 00:05:59'),
+(48, 4, 'Admin Logged in', '2025-05-29 00:06:14');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,7 @@ CREATE TABLE `properties` (
   `type` varchar(50) DEFAULT NULL,
   `structure` varchar(20) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
-  `status` varchar(20) DEFAULT 'Available',
+  `status` varchar(20) DEFAULT 'Pending',
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -106,7 +108,8 @@ CREATE TABLE `properties` (
 
 INSERT INTO `properties` (`id`, `type`, `structure`, `price`, `status`, `image`) VALUES
 (1, 'Commercial', 'Single', 2000000, 'Sold', 'aaaa0900.jpg'),
-(2, 'Mansion', 'Single', 5000000, 'Sold', '123.jpg');
+(2, 'Mansion', 'Single', 5000000, 'Sold', '123.jpg'),
+(3, 'Commercial', 'Single', 2000000, 'Available', '4d48ef08-9c9b-4802-a2e0-c55022185398_1.5ecadf3c95d084b3d5793d187d2d05f2.jpeg');
 
 -- --------------------------------------------------------
 
@@ -156,7 +159,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`i_id`, `i_fname`, `i_lname`, `i_username`, `i_password`, `i_email`, `i_phonenumber`, `i_type`, `status`, `i_image`, `security_question`, `security_answer`) VALUES
 (1, 'ross', 'sabio', 'ross123', 'DR6kwlbNUKKnzL/SKz2ZWfb9ML2EC5/zx8Ze5OId8G0=', 'ross123@gmail.com', '09123457892', 'User', 'Active', NULL, 'What\'s your favorite Song?', 'loveyourself'),
 (2, 'gummy', 'bear', 'gummybear0200', 'LINbqJZtkCEg+0UEA3+tNO/6S5Rh6YjkxNoHOtUNroI=', 'gummy@gmail.com', '092022376442', 'User', 'Active', '', 'What\'s your favorite Sports?', 'Jabol'),
-(3, 'admin', 'admin', 'administrator', 'LINbqJZtkCEg+0UEA3+tNO/6S5Rh6YjkxNoHOtUNroI=', 'admin@gmail.com', '092434234545', 'Admin', 'Active', '', 'What\'s your favorite Movie?', 'pornhub');
+(3, 'admin', 'admin', 'administrator', 'LINbqJZtkCEg+0UEA3+tNO/6S5Rh6YjkxNoHOtUNroI=', 'admin@gmail.com', '092434234545', 'Admin', 'Active', '', 'What\'s your favorite Movie?', 'pornhub'),
+(4, 'admin', 'admin', 'admin1', 'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', 'admin1@gmail.com', '09546625521', 'Admin', 'Active', '', 'What\'s your favorite Movie?', 'Klaus');
 
 --
 -- Indexes for dumped tables
@@ -197,13 +201,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `logs_table`
 --
 ALTER TABLE `logs_table`
-  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `purchased_properties`
@@ -215,7 +219,7 @@ ALTER TABLE `purchased_properties`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `i_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `i_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

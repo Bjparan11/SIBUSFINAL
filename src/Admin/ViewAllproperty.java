@@ -35,6 +35,8 @@ public class ViewAllproperty extends javax.swing.JFrame {
        this.i_username = username;
         
         userImagePath = imgPath;
+        
+        loadLoadsData();
     }
 
     
@@ -86,7 +88,7 @@ public class ViewAllproperty extends javax.swing.JFrame {
 
    
     private void loadLoadsData() {
-   DefaultTableModel model = (DefaultTableModel) tblrecord.getModel();  // Assuming tblrecord is your JTable
+    DefaultTableModel model = (DefaultTableModel) tblrecord.getModel();  // Assuming tblrecord is your JTable
     model.setRowCount(0); // Clear existing rows
 
     String sql = "SELECT id, type, structure, price, status FROM properties";
@@ -195,24 +197,32 @@ public class ViewAllproperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
-   
         int selectedRow = tblrecord.getSelectedRow();
         if (selectedRow != -1) {
-            String currentStatus = tblrecord.getValueAt(selectedRow, 4).toString(); // Assuming Status is in column 4
+            String currentStatus = tblrecord.getValueAt(selectedRow, 4).toString(); // Status column
+            int propertyId = Integer.parseInt(tblrecord.getValueAt(selectedRow, 0).toString()); // ID column
             if (currentStatus.equalsIgnoreCase("Available")) {
-                tblrecord.setValueAt("Sold", selectedRow, 4);
-                // Optional: also update the database or underlying data model
-                JOptionPane.showMessageDialog(null, "Status updated to Sold.");
+                // Update the database
+                String sql = "UPDATE properties SET status = 'Sold' WHERE id = ?";
+                try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/property", "root", "");
+                     PreparedStatement pst = con.prepareStatement(sql)) {
+                    pst.setInt(1, propertyId);
+                    int updated = pst.executeUpdate();
+                    if (updated > 0) {
+                        JOptionPane.showMessageDialog(null, "Status updated to Sold.");
+                        loadLoadsData(); // Refresh table
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to update status in database.");
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Database error: " + ex.getMessage());
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Property is already Sold.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a property to approve.");
         }
-   
-
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
