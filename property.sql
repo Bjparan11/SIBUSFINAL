@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2025 at 02:12 AM
+-- Generation Time: May 29, 2025 at 03:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -85,7 +85,31 @@ INSERT INTO `logs_table` (`logs_id`, `i_id`, `logs_action`, `logs_date`) VALUES
 (45, 3, 'Admin Logged in', '2025-05-27 03:41:03'),
 (46, 2, 'User Logged in', '2025-05-27 03:42:12'),
 (47, 4, 'Admin Logged in', '2025-05-29 00:05:59'),
-(48, 4, 'Admin Logged in', '2025-05-29 00:06:14');
+(48, 4, 'Admin Logged in', '2025-05-29 00:06:14'),
+(49, 4, 'Admin Logged in', '2025-05-29 00:12:32'),
+(50, 4, 'Admin Logged in', '2025-05-29 00:18:43'),
+(51, 4, 'Admin Logged in', '2025-05-29 00:32:56'),
+(52, 4, 'Admin Logged in', '2025-05-29 00:53:06'),
+(53, 4, 'Admin Logged in', '2025-05-29 00:54:52'),
+(54, 4, 'Admin Logged in', '2025-05-29 00:56:21'),
+(55, 4, 'Admin Logged in', '2025-05-29 01:02:47'),
+(56, 4, 'Admin Logged out', '2025-05-29 01:03:21'),
+(57, 4, 'Admin Logged in', '2025-05-29 01:03:58'),
+(58, 4, 'Opened USER record for update:  5', '2025-05-29 01:04:02'),
+(59, 4, 'Updated account details for user: admin1', '2025-05-29 01:04:04'),
+(60, 4, 'Admin Logged out', '2025-05-29 01:04:10'),
+(61, 5, 'User Logged in', '2025-05-29 01:04:13'),
+(62, 4, 'Admin Logged in', '2025-05-29 01:06:11'),
+(63, 4, 'Admin Logged out', '2025-05-29 01:06:41'),
+(64, 5, 'User Logged in', '2025-05-29 01:06:45'),
+(65, 5, 'User Logged in', '2025-05-29 01:09:42'),
+(66, 4, 'Admin Logged in', '2025-05-29 01:10:05'),
+(67, 5, 'User Logged in', '2025-05-29 01:11:27'),
+(68, 5, 'User Logged in', '2025-05-29 01:12:40'),
+(69, 5, 'User Logged in', '2025-05-29 01:14:26'),
+(70, 4, 'Admin Logged in', '2025-05-29 01:14:51'),
+(71, 5, 'User Logged in', '2025-05-29 01:15:18'),
+(72, 4, 'Admin Logged in', '2025-05-29 01:15:32');
 
 -- --------------------------------------------------------
 
@@ -98,7 +122,7 @@ CREATE TABLE `properties` (
   `type` varchar(50) DEFAULT NULL,
   `structure` varchar(20) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
-  `status` varchar(20) DEFAULT 'Pending',
+  `status` varchar(20) DEFAULT 'Available',
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -109,7 +133,11 @@ CREATE TABLE `properties` (
 INSERT INTO `properties` (`id`, `type`, `structure`, `price`, `status`, `image`) VALUES
 (1, 'Commercial', 'Single', 2000000, 'Sold', 'aaaa0900.jpg'),
 (2, 'Mansion', 'Single', 5000000, 'Sold', '123.jpg'),
-(3, 'Commercial', 'Single', 2000000, 'Available', '4d48ef08-9c9b-4802-a2e0-c55022185398_1.5ecadf3c95d084b3d5793d187d2d05f2.jpeg');
+(3, 'Commercial', 'Single', 2000000, 'Sold', '4d48ef08-9c9b-4802-a2e0-c55022185398_1.5ecadf3c95d084b3d5793d187d2d05f2.jpeg'),
+(4, 'Commercial', 'Single', 2000000, 'Sold', 'Screenshot 2025-05-06 094757.png'),
+(5, 'Residential', 'Single', 1200000, 'Sold', 'b4b91423-64b0-428f-be41-8aefc44d24ef.jpg'),
+(6, 'Commercial', 'Single', 2000000, 'Sold', '494579047_667404409493655_1283423035922815133_n.jpg'),
+(7, 'Commercial', 'Single', 2000000, 'Sold', '9 Most Common Landing Page Structure in 2023.jpg');
 
 -- --------------------------------------------------------
 
@@ -129,7 +157,11 @@ CREATE TABLE `purchased_properties` (
 --
 
 INSERT INTO `purchased_properties` (`id`, `user_id`, `property_id`, `purchase_date`) VALUES
-(1, 2, 2, '2025-05-27 10:45:11');
+(1, 2, 2, '2025-05-27 10:45:11'),
+(2, 1, 5, '2025-05-29 00:00:00'),
+(3, 5, 6, '2025-05-29 09:14:33'),
+(4, 5, 7, '2025-05-29 09:15:22'),
+(5, 1, 7, '2025-05-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -160,7 +192,8 @@ INSERT INTO `user` (`i_id`, `i_fname`, `i_lname`, `i_username`, `i_password`, `i
 (1, 'ross', 'sabio', 'ross123', 'DR6kwlbNUKKnzL/SKz2ZWfb9ML2EC5/zx8Ze5OId8G0=', 'ross123@gmail.com', '09123457892', 'User', 'Active', NULL, 'What\'s your favorite Song?', 'loveyourself'),
 (2, 'gummy', 'bear', 'gummybear0200', 'LINbqJZtkCEg+0UEA3+tNO/6S5Rh6YjkxNoHOtUNroI=', 'gummy@gmail.com', '092022376442', 'User', 'Active', '', 'What\'s your favorite Sports?', 'Jabol'),
 (3, 'admin', 'admin', 'administrator', 'LINbqJZtkCEg+0UEA3+tNO/6S5Rh6YjkxNoHOtUNroI=', 'admin@gmail.com', '092434234545', 'Admin', 'Active', '', 'What\'s your favorite Movie?', 'pornhub'),
-(4, 'admin', 'admin', 'admin1', 'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', 'admin1@gmail.com', '09546625521', 'Admin', 'Active', '', 'What\'s your favorite Movie?', 'Klaus');
+(4, 'admin', 'admin', 'admin1', 'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', 'admin1@gmail.com', '09546625521', 'Admin', 'Active', '', 'What\'s your favorite Movie?', 'Klaus'),
+(5, 'test', 'test', 'test', 'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', 'test@gmail.com', '09546621552', 'User', 'Active', '', 'What\'s the lastname of your Mother?', 'asdf');
 
 --
 -- Indexes for dumped tables
@@ -201,25 +234,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `logs_table`
 --
 ALTER TABLE `logs_table`
-  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `purchased_properties`
 --
 ALTER TABLE `purchased_properties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `i_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `i_id` int(55) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -354,66 +354,66 @@ public void updateMembershipImage() {
             return;
         }
 
-        String imagePathInDB = imageFileToCheck.getName();
         dbConnector dbc = new dbConnector();
 
-        // Update property status to 'Sold'
-        String updateQuery = "UPDATE properties SET status = 'Sold' WHERE type = ? AND structure = ? AND price = ? AND image = ? AND status = 'Available'";
+        // First find the property ID using type, structure, and price
+        String findPropertyQuery = "SELECT id FROM properties WHERE type = ? AND structure = ? AND price = ? AND status = 'Available' LIMIT 1";
+        PreparedStatement findPst = dbc.getConnection().prepareStatement(findPropertyQuery);
+        findPst.setString(1, pType);
+        findPst.setString(2, pStructure);
+        findPst.setInt(3, pPrice);
+        ResultSet findRs = findPst.executeQuery();
+
+        if (!findRs.next()) {
+            JOptionPane.showMessageDialog(null, "No available property found with the specified details.");
+            findRs.close();
+            findPst.close();
+            return;
+        }
+
+        int propertyId = findRs.getInt("id");
+        findRs.close();
+        findPst.close();
+
+        // Update property status to 'Sold' using the ID
+        String updateQuery = "UPDATE properties SET status = 'Pending' WHERE id = ? AND status = 'Available'";
         PreparedStatement pst = dbc.getConnection().prepareStatement(updateQuery);
-        pst.setString(1, pType);
-        pst.setString(2, pStructure);
-        pst.setInt(3, pPrice);
-        pst.setString(4, imagePathInDB);
+        pst.setInt(1, propertyId);
 
         int updated = pst.executeUpdate();
         pst.close();
 
         if (updated > 0) {
-            // Fetch the updated property ID
-            String selectIdQuery = "SELECT id FROM properties WHERE type = ? AND structure = ? AND price = ? AND image = ? AND status = 'Sold' LIMIT 1";
-            PreparedStatement selectIdPst = dbc.getConnection().prepareStatement(selectIdQuery);
-            selectIdPst.setString(1, pType);
-            selectIdPst.setString(2, pStructure);
-            selectIdPst.setInt(3, pPrice);
-            selectIdPst.setString(4, imagePathInDB);
-            ResultSet rs = selectIdPst.executeQuery();
+            int userId = Session.getInstance().getIid();
 
-            if (rs.next()) {
-                int propertyId = rs.getInt("id");
-                int userId = Session.getInstance().getIid();
+            // Check if user already purchased this property
+            String checkDup = "SELECT * FROM purchased_properties WHERE user_id = ? AND property_id = ?";
+            PreparedStatement checkDupPst = dbc.getConnection().prepareStatement(checkDup);
+            checkDupPst.setInt(1, userId);
+            checkDupPst.setInt(2, propertyId);
+            ResultSet checkDupRs = checkDupPst.executeQuery();
 
-                // Check if user already purchased this property
-                String checkDup = "SELECT * FROM purchased_properties WHERE user_id = ? AND property_id = ?";
-                PreparedStatement checkPst = dbc.getConnection().prepareStatement(checkDup);
-                checkPst.setInt(1, userId);
-                checkPst.setInt(2, propertyId);
-                ResultSet checkRs = checkPst.executeQuery();
+            if (checkDupRs.next()) {
+                JOptionPane.showMessageDialog(null, "You have already purchased this property.");
+            } else {
+                // Insert into purchased_properties
+                String insertQuery = "INSERT INTO purchased_properties (user_id, property_id, purchase_date) VALUES (?, ?, NOW())";
+                PreparedStatement insertPst = dbc.getConnection().prepareStatement(insertQuery);
+                insertPst.setInt(1, userId);
+                insertPst.setInt(2, propertyId);
 
-                if (checkRs.next()) {
-                    JOptionPane.showMessageDialog(null, "You have already purchased this property.");
+                int inserted = insertPst.executeUpdate();
+                if (inserted > 0) {
+                    JOptionPane.showMessageDialog(null, "Property successfully purchased and recorded.");
                 } else {
-                    // Insert into purchased_properties
-                    String insertQuery = "INSERT INTO purchased_properties (user_id, property_id, purchase_date) VALUES (?, ?, NOW())";
-                    PreparedStatement insertPst = dbc.getConnection().prepareStatement(insertQuery);
-                    insertPst.setInt(1, userId);
-                    insertPst.setInt(2, propertyId);
-
-                    int inserted = insertPst.executeUpdate();
-                    if (inserted > 0) {
-                        JOptionPane.showMessageDialog(null, "Property successfully purchased and recorded.");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Failed to record the purchase.");
-                    }
-
-                    insertPst.close();
+                    JOptionPane.showMessageDialog(null, "Failed to record the purchase.");
                 }
 
-                checkRs.close();
-                checkPst.close();
+                insertPst.close();
             }
 
-            rs.close();
-            selectIdPst.close();
+            checkDupRs.close();
+            checkDupPst.close();
 
             // Clear form
             ty.setSelectedIndex(0);
@@ -423,7 +423,7 @@ public void updateMembershipImage() {
             image.setIcon(null);
             selectedFile = null;
         } else {
-            JOptionPane.showMessageDialog(null, "No matching property found or already sold.");
+            JOptionPane.showMessageDialog(null, "Property is no longer available.");
         }
 
         UserDashboard usd = new UserDashboard(i_username,userImagePath);
