@@ -201,7 +201,7 @@ public class ViewAllproperty extends javax.swing.JFrame {
         if (selectedRow != -1) {
             String currentStatus = tblrecord.getValueAt(selectedRow, 4).toString(); // Status column
             int propertyId = Integer.parseInt(tblrecord.getValueAt(selectedRow, 0).toString()); // ID column
-            if (currentStatus.equalsIgnoreCase("Available")) {
+            if (currentStatus.equalsIgnoreCase("Pending")) {
                 // Update the database
                 String sql = "UPDATE properties SET status = 'Sold' WHERE id = ?";
                 try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/property", "root", "");
@@ -209,7 +209,13 @@ public class ViewAllproperty extends javax.swing.JFrame {
                     pst.setInt(1, propertyId);
                     int updated = pst.executeUpdate();
                     if (updated > 0) {
-                        JOptionPane.showMessageDialog(null, "Status updated to Sold.");
+                        // Insert into purchased_properties table
+                        String insertSql = "INSERT INTO purchased_properties (property_id, user_id, purchase_date) VALUES (?, 1, CURDATE())";
+                        try (PreparedStatement insertPst = con.prepareStatement(insertSql)) {
+                            insertPst.setInt(1, propertyId);
+                            insertPst.executeUpdate();
+                        }
+                        JOptionPane.showMessageDialog(null, "Status updated to Sold and added to purchased properties.");
                         loadLoadsData(); // Refresh table
                     } else {
                         JOptionPane.showMessageDialog(null, "Failed to update status in database.");
